@@ -4,7 +4,8 @@ class RegistrationsController < ApplicationController
   # GET /registrations
   # GET /registrations.json
   def index
-    @registrations = Registration.all(:order => :id)
+    @type = registration_type
+    @registrations = registration_type.all(:order => :id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +18,7 @@ class RegistrationsController < ApplicationController
   # GET /registrations/1
   # GET /registrations/1.json
   def show
-    @registration = Registration.find(params[:id])
+    @registration = registration_type.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,7 +29,7 @@ class RegistrationsController < ApplicationController
   # GET /registrations/new
   # GET /registrations/new.json
   def new
-    @registration = Registration.new(:activity => "Volleyball")
+    @registration = registration_type.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -91,5 +92,12 @@ class RegistrationsController < ApplicationController
   # GET /registrations/1/thankyou
   def thankyou
     @registration = Registration.find(params[:id])
+  end
+  
+  private
+  
+  # http://stackoverflow.com/questions/5246767/sti-one-controller
+  def registration_type
+    params[:type].constantize
   end
 end

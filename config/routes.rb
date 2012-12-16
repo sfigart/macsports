@@ -5,10 +5,8 @@ PalMoanalua::Application.routes.draw do
     end
   end
 
-  authenticated :user do
-    root :to => 'home#volleyball'
-  end
-  root :to => "home#volleyball"
+  resources :basketballs, :controller => "registrations", :type => "Basketball"  
+  resources :volleyballs, :controller => "registrations", :type => "Volleyball"
   
   devise_for :users
   resources :users
@@ -18,4 +16,9 @@ PalMoanalua::Application.routes.draw do
   end
 
   match '/privacy' => "home#privacy"
+  match '/home' => "home#index"
+  match '/home/basketball' => "home#basketball"
+  match '/home/volleyball' => "home#volleyball"
+  
+  root :to => "home#index"
 end

@@ -1,0 +1,2 @@
+class Basketball < Registration
+end

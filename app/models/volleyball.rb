@@ -1,0 +1,2 @@
+class Volleyball < Registration
+end
