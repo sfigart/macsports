@@ -1,5 +1,9 @@
 module RegistrationsHelper
 
+  def partials_path(registration, partial_name)
+    "registrations/#{registration.type.downcase}/#{partial_name}"
+  end
+  
   def show_fields
     [
       :number,
@@ -35,7 +39,7 @@ module RegistrationsHelper
   
   def phone_number_presence_notice(registration)
     if registration.errors.include?(:phone_number_presence)
-      render :partial => 'phone_number_presence_notice'
+      render :partial => partials_path(registration, 'phone_number_presence_notice')
     end
   end
   

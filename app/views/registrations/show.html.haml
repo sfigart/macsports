@@ -1,11 +1,11 @@
 %h3 Registration Information
 - show_fields.each do |attribute|
-  = render :partial => 'field', :object => @registration, :locals => {:attribute => attribute}
+  = render :partial => partials_path(@registration, 'field'), :object => @registration, :locals => {:attribute => attribute}
 
 %h3 Technical Information
 
 - show_technical_fields.each do |attribute|
-  = render :partial => 'field', :object => @registration, :locals => {:attribute => attribute}
+  = render :partial => partials_path(@registration, 'field'), :object => @registration, :locals => {:attribute => attribute}
 
 = link_to 'Edit', edit_polymorphic_path(@registration)
 \|
