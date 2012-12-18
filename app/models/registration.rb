@@ -6,7 +6,8 @@ class Registration < ActiveRecord::Base
                   :mother_work_phone, :mother_first_name, :mother_last_name, :parent_name_for_agreement,
                   :player_first_name, :player_last_name, :practice_days, :school, :shirt_size, :state,
                   :volunteer_type, :zip_code, :lives_in_district, :has_geographic_exception,
-                  :division
+                  :division,
+                  :type
   attr_accessible :birth_date_as_date
   serialize :practice_days
   attr_encrypted :birth_date, :key => 'something secret!'
@@ -45,7 +46,7 @@ class Registration < ActiveRecord::Base
   end
   
   def number
-    "2013VB%03d" % self.id unless self.new_record?
+    "2013#{abbr}%03d" % self.id unless self.new_record?
   end
   
   def player_name
@@ -84,5 +85,5 @@ class Registration < ActiveRecord::Base
     self.http_referrer = request.referrer
     self.http_cookie = request.cookies.to_s
     self.request_fullpath = request.fullpath
-  end  
+  end
 end

@@ -1,5 +1,11 @@
 .alert.alert-success{:style => 'margin-top: 25px;'}
   %p.lead
-    %strong Thank you!
-    Your registration has been received. Your registration number is 
+    %strong
+      Thank you!
+    Your
+    = @registration.class
+    registration has been received. Your registration number is 
     %em.underline #{@registration.number}
+    
+  %p.lead
+    = "An email has been sent to the email address that was provided (#{@registration.email_address}) in the registration form."

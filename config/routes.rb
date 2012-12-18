@@ -1,12 +1,15 @@
 PalMoanalua::Application.routes.draw do
-  resources :registrations do
+  resources :registrations
+  resources :basketballs, :controller => "registrations", :type => "Basketball" do
     member do
       get 'thankyou'
     end
   end
-
-  resources :basketballs, :controller => "registrations", :type => "Basketball"  
-  resources :volleyballs, :controller => "registrations", :type => "Volleyball"
+  resources :volleyballs, :controller => "registrations", :type => "Volleyball" do
+    member do
+      get 'thankyou'
+    end
+  end
   
   devise_for :users
   resources :users

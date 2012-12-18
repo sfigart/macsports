@@ -1,4 +1,3 @@
-%p#notice= notice
 %h3 Registration Information
 - show_fields.each do |attribute|
   = render :partial => 'field', :object => @registration, :locals => {:attribute => attribute}
@@ -8,6 +7,6 @@
 - show_technical_fields.each do |attribute|
   = render :partial => 'field', :object => @registration, :locals => {:attribute => attribute}
 
-= link_to 'Edit', edit_registration_path(@registration)
+= link_to 'Edit', edit_polymorphic_path(@registration)
 \|
-= link_to 'Back', registrations_path
+= link_to 'Back', polymorphic_path(@registration.class)

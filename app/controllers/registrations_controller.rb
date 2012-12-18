@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @registrations }
-      format.csv { send_data Registration.to_csv }
+      format.csv { send_data registration_type.to_csv }
       format.xls
     end
   end
@@ -39,20 +39,20 @@ class RegistrationsController < ApplicationController
 
   # GET /registrations/1/edit
   def edit
-    @registration = Registration.find(params[:id])
+    @registration = registration_type.find(params[:id])
   end
 
   # POST /registrations
   # POST /registrations.json
   def create
-    @registration = Registration.new(params[:registration])
+    @registration = registration_type.new(params[registration_type.to_s.downcase])
     @registration.record_request_info(request)
     
     respond_to do |format|
       if @registration.save
         RegistrationMailer.registration_complete(@registration).deliver
-        
-        format.html { redirect_to thankyou_registration_path(@registration) }
+
+        format.html { redirect_to (polymorphic_path(@registration)+"/thankyou") }
         format.json { render json: @registration, status: :created, location: @registration }
       else
         format.html { render action: "new" }
@@ -64,10 +64,10 @@ class RegistrationsController < ApplicationController
   # PUT /registrations/1
   # PUT /registrations/1.json
   def update
-    @registration = Registration.find(params[:id])
+    @registration = registration_type.find(params[:id])
 
     respond_to do |format|
-      if @registration.update_attributes(params[:registration])
+      if @registration.update_attributes(params[registration_type.to_s.downcase])
         format.html { redirect_to @registration, notice: 'Registration was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,24 +80,24 @@ class RegistrationsController < ApplicationController
   # DELETE /registrations/1
   # DELETE /registrations/1.json
   def destroy
-    @registration = Registration.find(params[:id])
+    @registration = registration_type.find(params[:id])
     @registration.destroy
 
     respond_to do |format|
-      format.html { redirect_to registrations_url }
+      format.html { redirect_to polymorphic_url(@registration.class) }
       format.json { head :no_content }
     end
   end
   
   # GET /registrations/1/thankyou
   def thankyou
-    @registration = Registration.find(params[:id])
+    @registration = registration_type.find(params[:id])
   end
   
   private
   
   # http://stackoverflow.com/questions/5246767/sti-one-controller
   def registration_type
-    params[:type].constantize
+    params[:type].constantize if params[:type]
   end
 end
