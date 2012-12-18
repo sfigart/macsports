@@ -1,4 +1,34 @@
 %fieldset
   %legend PAYMENT
+
   %p
-    If your child is selected, payment must be made by check or money order made payable to MAC for $50. Payment must be made by 3/1/2013 or your child will be taken off the list.
+    Payment must be made by check or money order made payable to
+    =succeed "." do
+      %strong MAC
+    Payment must be made by 
+    %strong 3/8/2013
+    or your child will be taken off the list.
+  
+  %strong Fee Schedule
+  .row
+    .span2
+      %table.table.table-bordered.table-condensed.table-striped
+        %tr
+          %td Jr. Pinto
+          %td $65
+        %tr
+          %td Pinto
+          %td $75
+        %tr
+          %td Mustang
+          %td $75
+        %tr
+          %td Bronco
+          %td $80
+        %tr
+          %td Pony
+          %td $80    
+
+  .alert.alert-info
+    %span.label.label-warning CHECK POLICY
+    %p Checks returned unpaid by your bank will be returned to you by the program coordinator.  Your check will not be re-deposited.  Within one week of notification, you must make arrangements with the coordinator (or any board member) to pay the registration fee plus $20.00 (bank charges) by either: 1) cash or 2) another check.  Should your second check be returned, all future payments (regardless of activity) must be made in cash.  If you have any questions regarding this policy, please check with the program coordinator.

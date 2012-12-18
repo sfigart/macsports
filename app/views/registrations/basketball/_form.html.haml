@@ -54,11 +54,16 @@
     %fieldset
       %legend Player's Information
       .row
-        .span9
+        .span4
           - if @registration.new_record?
             = f.input :birth_date, :as => :date, :start_year => Date.today.year - 15,  :end_year => Date.today.year, :order => [:month, :day, :year], :use_short_month => true, :prompt => true, :input_html => {:class => 'input-small'}
           - else
             = f.input :birth_date_as_date
+        .span8
+          %br
+          .alert.alert-info
+            %span.label.label-warning Notice
+            %em If the child did not play MAC Baseball in 2012, a copy of the child’s birth certificate must be submitted with the payment
 
       .row
         .span1= f.input :age, :input_html => {:class => 'input-mini', :type => :text, :maxlength => 2}
@@ -75,9 +80,12 @@
           .alert.alert-info
             %span.label.label-warning Notice
             %em Since shirts will not be tried on, all shirts are Hanes cotton tees
+
+      .row
+        .span3= f.input :pants_size, :collection => pants_sizes
         
       .row
-        .span3= f.input :division, :collection => divisions, :as => :radio_buttons
+        .span3= f.input :division, :collection => basketball_divisions, :as => :radio_buttons
         .span9
           %br
           .alert.alert-info
@@ -86,6 +94,7 @@
               If you are looking at moving your child to a higher age group please contact
               = mail_to "palmoanalua@gmail.com", nil, :subject => "MAC Volleyball - moving my child to a higher age group"
               %i.icon-envelope
+      = f.input :special_requests, :input_html => {:rows => 3, :class => 'input-block-level'}
 
     %fieldset
       %legend Medical Insurance Coverage
@@ -105,11 +114,6 @@
       .row
         .span12
           = f.input :practice_days, :collection => practice_days, :multiple => true, :as => :check_boxes, :label => false, :item_wrapper_class => 'inline'
-      .row
-        .span12
-          .alert.alert-info
-            %span.label.label-warning Notice
-            Please note if you place specific days for practice and we cannot accommodate MAC will NOT place child on a team. Therefore requesting days should only be for those who absolutely cannot practice on certain days.
 
     %fieldset
       %legend Parents as Volunteers
@@ -123,7 +127,6 @@
 
     = render :partial => partials_path(@registration, 'agreement'), :locals => {:f => f}
     = render :partial => partials_path(@registration, 'fees')
-    = render :partial => partials_path(@registration, 'screening'), :locals => {:f => f}
     = render :partial => partials_path(@registration, 'payment')
 
     .form-actions
