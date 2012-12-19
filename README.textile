@@ -1,5 +1,5 @@
-!https://secure.travis-ci.org/sfigart/palmoanalua.png?branch=master!:https://travis-ci.org/sfigart/palmoanalua
+!https://secure.travis-ci.org/sfigart/macsports.png?branch=master!:https://travis-ci.org/sfigart/macsports
 
-h1. PAL Moanalua
+h1. MAC Sports
 
-This application is a simple registration form with a lightweight admin backend focused on exporting to Excel.
+This application is a simple registration application for volleyball and basketball with a lightweight admin backend focused on exporting to Excel.
