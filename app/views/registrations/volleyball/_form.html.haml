@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :activity, :as => :hidden
+    = f.input :type, :as => :hidden
     %fieldset
       %legend Player's name
       .row
@@ -121,10 +121,10 @@
           %em Head coaches will be contacted ahead of time
     %hr
 
-    = render :partial => 'agreement', :locals => {:f => f}
-    = render :partial => 'fees'
-    = render :partial => 'screening', :locals => {:f => f}
-    = render :partial => 'payment'
+    = render :partial => partials_path(@registration, 'agreement'), :locals => {:f => f}
+    = render :partial => partials_path(@registration, 'fees')
+    = render :partial => partials_path(@registration, 'screening'), :locals => {:f => f}
+    = render :partial => partials_path(@registration, 'payment')
 
     .form-actions
       = f.submit 'Submit Registration', :class => 'btn btn-large btn-primary'

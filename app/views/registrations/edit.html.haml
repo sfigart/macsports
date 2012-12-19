@@ -1,7 +1,7 @@
-%h1 Editing registration
+%h1 Editing #{@registration.type} Registration
 
-= render 'form'
+= render partials_path(@registration, "form")
 
 = link_to 'Show', @registration
 \|
-= link_to 'Back', registrations_path
+= link_to 'Back', polymorphic_path(@registration.class)

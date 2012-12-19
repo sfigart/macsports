@@ -1,5 +1,9 @@
 module RegistrationsHelper
 
+  def partials_path(registration, partial_name)
+    "registrations/#{registration.type.downcase}/#{partial_name}"
+  end
+  
   def show_fields
     [
       :number,
@@ -35,7 +39,7 @@ module RegistrationsHelper
   
   def phone_number_presence_notice(registration)
     if registration.errors.include?(:phone_number_presence)
-      render :partial => 'phone_number_presence_notice'
+      render :partial => partials_path(registration, 'phone_number_presence_notice')
     end
   end
   
@@ -62,6 +66,16 @@ module RegistrationsHelper
       ['Pinto   (4/30/2006 - 5/1/2004)', 'Pinto'],
       ['Mustang (4/30/2004 - 5/1/2002)', 'Mustang'],
       ['Bronco  (4/30/2002 - 5/1/1999)', 'Bronco']
+    ]
+  end
+  
+  def basketball_divisions
+    [  
+      ['Jr. Pinto (4/30/08 - 5/1/2006)', 'JrPinto'],
+      ['Pinto   (4/30/2006 - 5/1/2004)', 'Pinto'],
+      ['Mustang (4/30/2004 - 5/1/2002)', 'Mustang'],
+      ['Bronco  (4/30/2002 - 5/1/1999)', 'Bronco'],
+      ['Pony    (4/30/2000 - 5/1/1997)', 'Pony']
     ]
   end
   
@@ -98,6 +112,10 @@ module RegistrationsHelper
   
   def shirt_sizes
     %w(YS YM YL AS AM AL AXL AXXL)
+  end
+  
+  def pants_sizes
+    %w(YXS YS YM YL YXL AS AM AL AXL AXXL)
   end
 
   def volunteer_types

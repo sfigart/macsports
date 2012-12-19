@@ -1,8 +1,10 @@
-%h1 Registrations
+%h1
+  = @type
+  Registrations
 
 %p
   Download:
-  = link_to "Excel", registrations_path(format: "xls")
+  = link_to "Excel", polymorphic_path(@type, format: "xls")
 
 %table.table.table-striped.table-bordered.table-hover.table-condensed{:id => :registrations}
   %thead
@@ -39,9 +41,9 @@
       %td= format_practice_days(registration.practice_days)
       %td= registration.lives_in_district
       %td= registration.has_geographic_exception
-      %td= link_to 'Edit', edit_registration_path(registration)
-      %td= link_to 'Destroy', registration, method: :delete, data: { confirm: 'Are you sure?' }
+      %td= link_to 'Edit', edit_polymorphic_path(registration)
+      %td= link_to 'Destroy', polymorphic_path(registration), method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Registration', new_registration_path
+= link_to "New #{@type} Registration", new_polymorphic_path(@type), class: 'btn btn-large btn-primary'

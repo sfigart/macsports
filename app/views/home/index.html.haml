@@ -1,4 +1,3 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+%ul
+  %li= link_to "Basketball", home_basketball_path
+  %li= link_to "Volleyball", home_volleyball_path

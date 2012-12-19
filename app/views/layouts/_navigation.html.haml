@@ -3,12 +3,12 @@
   %ul.nav
     - if user_signed_in?
       - if current_user.has_role?(:manager) || current_user.has_role?(:admin)
-        - if controller.class.name =~ /^Registrations/
-          %li.active
-            = link_to 'Registrations', registrations_path
-        -else
-          %li
-            = link_to 'Registrations', registrations_path
+        %li.dropdown
+          = link_to caret("Registrations"), "#", :role => :button, :class => "dropdown-toggle", data: {toggle: :dropdown}
+          %ul.dropdown-menu{:role => :menu, "aria-labelledby" => :drop1}
+            - Registration.descendants.each do |sport|
+              %li= link_to sport.name, polymorphic_path(sport)
+          
     - if user_signed_in?
       %li
         = link_to 'Logout', destroy_user_session_path, :method=>'delete'

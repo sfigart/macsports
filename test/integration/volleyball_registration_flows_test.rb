@@ -1,18 +1,18 @@
 require 'test_helper'
 
-class RegistrationFlowsTest < ActionDispatch::IntegrationTest
-  test "Registration" do
+class VolleyballRegistrationFlowsTest < ActionDispatch::IntegrationTest
+  test "Volleyball" do
     https!
     get '/'
     assert_response :success
     
-    get '/registrations/new'
+    get '/volleyballs/new'
     assert_response :success
   end
-  
-  test "Post valid registration" do
-    post '/registrations', :registration => {
-      "activity"=>"Volleyball",
+
+  test "Post valid volleyball registration" do
+    post '/volleyballs', :volleyball => {
+      "type"=>"Volleyball",
       "player_first_name"=>"First",
       "player_last_name"=>"Last",
       "father_first_name"=>"Father",
@@ -48,18 +48,17 @@ class RegistrationFlowsTest < ActionDispatch::IntegrationTest
       "has_geographic_exception"=>"false"
     }
 
-   assert_redirected_to thankyou_registration_path(assigns(:registration))
-   
+   assert_redirected_to polymorphic_path(assigns(:registration))+"/thankyou"
    assert_equal("Father", assigns(:registration).father_first_name)
    assert_equal(false, assigns(:registration).new_record?)
    assert_equal(true, assigns(:registration).valid?)
-   
    assert_equal("POST", assigns(:registration).method)
-   assert_equal("/registrations", assigns(:registration).request_fullpath)
+   assert_equal("/volleyballs", assigns(:registration).request_fullpath)
+
   end
-  
-  test "Post invalid registration" do
-    post '/registrations', :registration => {}
+
+  test "Post invalid volleyball registration" do
+    post '/volleyballs', :volleyball => {}
     
     assert_response :success
     assert_equal(nil, assigns(:registration).id)

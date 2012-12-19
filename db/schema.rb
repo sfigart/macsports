@@ -11,10 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215082927) do
+ActiveRecord::Schema.define(:version => 20121218065830) do
 
   create_table "registrations", :force => true do |t|
-    t.string   "activity"
     t.string   "player_first_name"
     t.string   "player_last_name"
     t.string   "father_first_name"
@@ -56,6 +55,9 @@ ActiveRecord::Schema.define(:version => 20121215082927) do
     t.string   "http_referrer"
     t.text     "http_cookie"
     t.string   "request_fullpath"
+    t.string   "type"
+    t.string   "pants_size"
+    t.text     "special_requests"
   end
 
   create_table "roles", :force => true do |t|
