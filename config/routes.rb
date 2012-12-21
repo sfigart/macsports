@@ -1,6 +1,16 @@
 PalMoanalua::Application.routes.draw do
   resources :registrations
+  resources :baseballs, :controller => "registrations", :type => "Baseball" do
+    member do
+      get 'thankyou'
+    end
+  end
   resources :basketballs, :controller => "registrations", :type => "Basketball" do
+    member do
+      get 'thankyou'
+    end
+  end
+  resources :footballs, :controller => "registrations", :type => "Football" do
     member do
       get 'thankyou'
     end
@@ -20,7 +30,9 @@ PalMoanalua::Application.routes.draw do
 
   match '/privacy' => "home#privacy"
   match '/home' => "home#index"
+  match '/home/baseball' => "home#baseball"
   match '/home/basketball' => "home#basketball"
+  match '/home/football' => "home#football"
   match '/home/volleyball' => "home#volleyball"
   
   root :to => "home#index"

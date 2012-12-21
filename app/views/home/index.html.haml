@@ -1,3 +1,13 @@
-%ul
-  %li= link_to "Basketball", home_basketball_path
-  %li= link_to "Volleyball", home_volleyball_path
+%p.lead
+  Welcome to the Moanalua Athletic Club (MAC) sports program!
+
+  The MAC sports program is primarily for youth residing in the Moanalua area (Fort Shafter to Red Hill and mauka of the freeway), or attending Moanalua Elementary or Middle Schools.
+  
+%ul.thumbnails
+  - sports.each do |sport|
+    %li.span3
+      .thumbnail
+        =link_to image_tag("#{sport.name.downcase}.jpg"), sport.path, :class => "thumbnail"
+        %p.pagination-centered
+          %br
+          = link_to "Youth #{sport.name}", sport.path,  class: 'btn btn-large btn-primary'
