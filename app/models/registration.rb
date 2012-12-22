@@ -26,9 +26,7 @@ class Registration < ActiveRecord::Base
             
   validates_date :birth_date
   validates :email_address, :presence => true, :email => true
-  validates :has_geographic_exception, :inclusion => {:in => [true, false], :message => "can't be blank"}
   validates :has_medical_insurance, :inclusion => {:in => [true, false], :message => "can't be blank"}
-  validates :lives_in_district, :inclusion => {:in => [true, false], :message => "can't be blank"}
   validates :medical_insurance_name, :presence => true, :if => :medical_insurance_name_required?
   validates :zip_code, :presence => true, :numericality => { :only_integer => true }
   validate  :has_at_least_one_contact_phone_number

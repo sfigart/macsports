@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218065830) do
+ActiveRecord::Schema.define(:version => 20121222201218) do
 
   create_table "registrations", :force => true do |t|
     t.string   "player_first_name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20121218065830) do
     t.string   "type"
     t.string   "pants_size"
     t.text     "special_requests"
+    t.string   "player_nickname"
   end
 
   create_table "roles", :force => true do |t|

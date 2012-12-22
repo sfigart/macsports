@@ -11,7 +11,7 @@ class RegistrationsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @registrations }
       format.csv { send_data registration_type.to_csv }
-      format.xls
+      format.xls { render :template => "/registrations/#{registration_type.to_s.downcase}/index.xls.erb" }
     end
   end
 

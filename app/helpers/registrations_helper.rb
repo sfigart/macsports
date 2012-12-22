@@ -69,7 +69,7 @@ module RegistrationsHelper
     ]
   end
   
-  def basketball_divisions
+  def baseball_divisions
     [  
       ['Jr. Pinto (4/30/08 - 5/1/2006)', 'JrPinto'],
       ['Pinto   (4/30/2006 - 5/1/2004)', 'Pinto'],

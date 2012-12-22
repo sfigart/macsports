@@ -6,43 +6,7 @@
   Download:
   = link_to "Excel", polymorphic_path(@type, format: "xls")
 
-%table.table.table-striped.table-bordered.table-hover.table-condensed{:id => :registrations}
-  %thead
-    %tr
-      %th
-      %th Registration #
-      %th Player
-      %th Email
-      %th Grade
-      %th Age
-      %th Gender
-      %th Division
-      %th Priority
-      %th Volunteer Type
-      %th Practice Days
-      %th Lives In District?
-      %th Has GE?
-      %th
-      %th
-
-  %tbody
-  - @registrations.each_with_index do |registration, index|
-    %tr
-      %td= index+1
-      %td= link_to(registration.number, registration)
-      %td= registration.player_name
-      %td= registration.email_address
-      %td= registration.grade
-      %td= registration.age
-      %td= registration.gender
-      %td= registration.division
-      %td= registration.priority
-      %td= registration.volunteer_type
-      %td= format_practice_days(registration.practice_days)
-      %td= registration.lives_in_district
-      %td= registration.has_geographic_exception
-      %td= link_to 'Edit', edit_polymorphic_path(registration)
-      %td= link_to 'Destroy', polymorphic_path(registration), method: :delete, data: { confirm: 'Are you sure?' }
+= render :partial => partials_path(@registrations.first, "index") unless @registrations.empty?
 
 %br
 
