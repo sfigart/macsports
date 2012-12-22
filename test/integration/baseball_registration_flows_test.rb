@@ -31,6 +31,8 @@ class BaseballRegistrationFlowsTest < ActionDispatch::IntegrationTest
       "father_work_phone"=>"(808) 555-6666 x1234",
       "mother_cell_phone"=>"(808) 654-1234",
       "mother_work_phone"=>"(808) 839-7777 x2",
+      "emergency_name"=>"emergency name",
+      "emergency_phone"=>"(808) 123-4567",
       "birth_date(2i)"=>"2",
       "birth_date(3i)"=>"29",
       "birth_date(1i)"=>"2000",

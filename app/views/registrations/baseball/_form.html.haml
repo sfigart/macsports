@@ -46,7 +46,7 @@
 
     %fieldset
       %legend Contact Phone Information *
-      %p The phone numbers you provide will be used to contact you during the volleyball season by the league coordinator, team coach or team parent.
+      %p The phone numbers you provide will be used to contact you during the volleyball season by the program coordinator, team coach or team parent.
       = phone_number_presence_notice(@registration)
       .row
         .span3
@@ -58,6 +58,11 @@
         .span3= f.input :mother_cell_phone, :label => "Mother's cell", :input_html => {:class => 'input-block-level phone', :type => :text}
         .span3= f.input :mother_work_phone, :label => "Mother's work", :input_html => {:class => 'input-block-level phone', :type => :text}
 
+    %fieldset
+      %legend Emergency Contact
+      .row
+        .span6= f.input :emergency_name, :input_html => {:class => 'input-block-level'}, :label => "Name"
+        .span3= f.input :emergency_phone, :input_html => {:class => 'input-block-level phone', :type => :text}
     %fieldset
       %legend Player's Information
       .row

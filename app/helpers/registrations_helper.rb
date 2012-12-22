@@ -4,7 +4,7 @@ module RegistrationsHelper
     "registrations/#{registration.type.downcase}/#{partial_name}"
   end
   
-  def show_fields
+  def show_volleyball_fields
     [
       :number,
       :player_first_name, :player_last_name,
@@ -21,6 +21,27 @@ module RegistrationsHelper
       :priority, :practice_days,
       :volunteer_type,
       :lives_in_district, :has_geographic_exception,
+      :parent_name_for_agreement,    
+    ]
+  end
+  
+  def show_baseball_fields
+    [
+      :number,
+      :player_first_name, :player_last_name,
+      :father_first_name, :father_last_name,
+      :mother_first_name, :mother_last_name,
+      :address_line_1, :address_line_2,
+      :city, :state, :zip_code,
+      :home_phone, :father_cell_phone, :mother_cell_phone,
+      :emergency_name, :emergency_phone,
+      :email_address,
+      :school, :grade,
+      :birth_date, :age, :gender,
+      :division, :shirt_size, :pants_size,
+      :has_medical_insurance, :medical_insurance_name,
+      :priority, :practice_days,
+      :volunteer_type,
       :parent_name_for_agreement,    
     ]
   end
