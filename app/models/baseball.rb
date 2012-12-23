@@ -8,4 +8,16 @@ class Baseball < Registration
   def abbr
     "BB"
   end
+
+  def payment_amount
+    fees = {
+      'JrPinto' => 65,
+      'Pinto' => 75,
+      'Mustang' => 75,
+      'Bronco' => 80,
+      'Pony' => 80
+    }
+    fees[self.division]
+  end
+
 end

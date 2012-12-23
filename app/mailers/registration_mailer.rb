@@ -5,4 +5,9 @@ class RegistrationMailer < ActionMailer::Base
     @registration = registration
     mail(:to => registration.email_address, :subject => "PAL MAC Volleyball Registration Received")
   end
+  
+  def baseball_agreement(registration)
+    @registration = registration
+    mail(:to => registration.email_address, :subject => "MAC Baseball Agreement")
+  end
 end

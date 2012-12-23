@@ -50,7 +50,7 @@ class RegistrationsController < ApplicationController
     
     respond_to do |format|
       if @registration.save
-        RegistrationMailer.registration_complete(@registration).deliver
+        send_email_notice(@registration)
 
         format.html { redirect_to (polymorphic_path(@registration)+"/thankyou") }
         format.json { render json: @registration, status: :created, location: @registration }
@@ -68,6 +68,10 @@ class RegistrationsController < ApplicationController
 
     respond_to do |format|
       if @registration.update_attributes(params[registration_type.to_s.downcase])
+
+        # TODO: TESTING
+        send_email_notice(@registration)
+
         format.html { redirect_to @registration, notice: 'Registration was successfully updated.' }
         format.json { head :no_content }
       else
@@ -95,6 +99,15 @@ class RegistrationsController < ApplicationController
   end
   
   private
+  
+  def send_email_notice(registration)
+    case registration.type
+    when "Volleyball"
+      RegistrationMailer.registration_complete(registration).deliver
+    when "Baseball"
+      RegistrationMailer.baseball_agreement(registration).deliver
+    end
+  end
   
   # http://stackoverflow.com/questions/5246767/sti-one-controller
   def registration_type
