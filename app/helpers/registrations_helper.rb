@@ -28,7 +28,7 @@ module RegistrationsHelper
   def show_baseball_fields
     [
       :number,
-      :player_first_name, :player_last_name,
+      :player_first_name, :player_last_name, :player_nickname,
       :father_first_name, :father_last_name,
       :mother_first_name, :mother_last_name,
       :address_line_1, :address_line_2,

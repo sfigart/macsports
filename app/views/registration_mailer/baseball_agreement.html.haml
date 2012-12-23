@@ -33,11 +33,19 @@
     %hr
     %p{:style => "text-align:center;font-size: larger"} Agreement
     %p 
-      This agreement made this #{@registration.created_at.to_s(:day)} day of #{@registration.created_at.to_s(:month)} #{@registration.created_at.to_s(:year)} by and between the POLICE ACTIVITIES LEAGUE, First party, and
+      This agreement made this 
+      %strong #{@registration.created_at.to_s(:day)} 
+      day of
+      %strong #{@registration.created_at.to_s(:month)} #{@registration.created_at.to_s(:year)}
+      by and between the POLICE ACTIVITIES LEAGUE, First party, and
       %br
       %br
-      _________________________________ (Parent's name)
-    %p Second Party (Parents) of #{@registration.player_name} (Child's Name), a MINOR
+      %strong #{@registration.parent_name_for_agreement}
+      (Parent's name)
+    %p 
+      Second Party (Parents) of 
+      %strong #{@registration.player_name}
+      (Child's Name), a MINOR
      
     %p{:style => "text-align:center;font-size: larger"} WITNESSETH:
     %p That for and in consideration of the conditions, promises and covenants of the parties hereto, it is hereby agreed as follows:
