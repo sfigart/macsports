@@ -68,11 +68,11 @@
         <Cell><Data ss:Type="String"><%= registration.mother_work_phone %></Data></Cell>
         <Cell><Data ss:Type="String"><%= registration.mother_cell_phone %></Data></Cell>
         <Cell><Data ss:Type="String"><%= registration.emergency_name %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= registration.emergency_contact %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registration.emergency_phone %></Data></Cell>
         <Cell><Data ss:Type="String"><%= registration.email_address %></Data></Cell>
         <Cell><Data ss:Type="String"><%= registration.school %></Data></Cell>
         <Cell><Data ss:Type="String"><%= registration.grade %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= to_mmddyy(registration.birth_date) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registration.birth_date.to_s(:mmddyy) %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= registration.age %></Data></Cell>
         <Cell><Data ss:Type="String"><%= registration.gender %></Data></Cell>
         <Cell><Data ss:Type="String"><%= registration.division %></Data></Cell>

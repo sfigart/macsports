@@ -9,7 +9,6 @@ class Registration < ActiveRecord::Base
                   :division,
                   :type
   serialize :practice_days
-  attr_encrypted :birth_date, :key => 'something secret!', :marshal => true
   
   validates :player_last_name, :player_first_name,
             :father_last_name, :father_first_name,

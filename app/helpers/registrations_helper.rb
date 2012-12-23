@@ -63,12 +63,7 @@ module RegistrationsHelper
       render :partial => partials_path(registration, 'phone_number_presence_notice')
     end
   end
-  
-  def to_mmddyy(birth_date)
-    real_date = DateTime.strptime(birth_date,"%Y-%m-%d")
-    real_date.strftime("%m/%d/%Y")
-  end
-  
+    
   def format_practice_days(practice_days)
     practice_days.reject! { |d| d.empty? }
     practice_days.join(', ')
