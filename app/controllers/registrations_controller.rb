@@ -69,9 +69,6 @@ class RegistrationsController < ApplicationController
     respond_to do |format|
       if @registration.update_attributes(params[registration_type.to_s.downcase])
 
-        # TODO: TESTING
-        send_email_notice(@registration)
-
         format.html { redirect_to @registration, notice: 'Registration was successfully updated.' }
         format.json { head :no_content }
       else
