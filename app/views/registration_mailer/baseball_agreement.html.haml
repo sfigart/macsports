@@ -3,14 +3,12 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", 'http-equiv' => "Content-Type"}
   %body
-    %p
-      %strong POLICE ACTIVITIES LEAGUE
-      %br
-      %strong Moanalua Athletic Club Baseball Agreement - Date: #{@registration.created_at.to_s(:mmddyy)}
-    %p
-      Registration number: #{@registration.number}
-      %br
-      Your child is registered to play in the #{@registration.division} division.
+    %strong POLICE ACTIVITIES LEAGUE
+    %br
+    %strong Moanalua Athletic Club Baseball Agreement - Date: #{@registration.created_at.to_s(:mmddyy)}
+    %br
+    %br
+    Your child is registered to play in the #{@registration.division} division. Your registration number is: #{@registration.number}
     %ul
       %li Print, complete the agreement and sign. Return the signed email along with your payment
       %li
@@ -31,36 +29,43 @@
       Honolulu, HI  96819
     %p{:style => "font-size: smaller"} Check Policy: Checks returned unpaid by your bank will be returned to you by the program coordinator.  Your check will not be re-deposited.  Within one week of notification, you must make arrangements with the coordinator (or any board member) to pay the registration fee plus $20.00 (bank charges) by either: 1) cash or 2) another check.  Should your second check be returned, all future payments (regardless of activity) must be made in cash.
     %hr
-    %p{:style => "text-align:center;font-size: larger"} Agreement
-    %p 
+    %p{:style => "text-align:center;"}
+      %strong Agreement
+    %p
       This agreement made this 
       %strong #{@registration.created_at.to_s(:day)} 
       day of
       %strong #{@registration.created_at.to_s(:month)} #{@registration.created_at.to_s(:year)}
       by and between the POLICE ACTIVITIES LEAGUE, First party, and
-      %br
-      %br
       %strong #{@registration.parent_name_for_agreement}
-      (Parent's name)
-    %p 
-      Second Party (Parents) of 
+      (Parent's name) Second Party (Parents) of 
       %strong #{@registration.player_name}
       (Child's Name), a MINOR
      
-    %p{:style => "text-align:center;font-size: larger"} WITNESSETH:
-    %p That for and in consideration of the conditions, promises and covenants of the parties hereto, it is hereby agreed as follows:
-    %p 1. Second Party for himself, his heirs, executors, and administrators, and heirs, executors and administrators of the said MINOR, hereby WAIVE and RELEASE any and all rights and damages they may have against the FIRST PARTY, its officers and representatives, sponsors, managers, coaches, trainers or any person or persons who are in any manner connected with the operation of the POLICE ACTIVITIES LEAGUE, for any practices exhibitions, contests, training and including transportation to and from the foregoing activities, by said MINOR.
-    %p Dated at Honolulu, Hawaii, this _____ day of _________________ 2013
-    %p POLICE ACTIVITIES LEAGUE, FIRST PARTY, by #{@registration.player_name} (Child's Name),
-    %p SECOND PARTY:
-    %table
+    %p{:style => "text-align:center;"}
+      %strong WITNESSETH:
+    %p
+      That for and in consideration of the conditions, promises and covenants of the parties hereto, it is hereby agreed as follows:
+      %br
+      %br
+      1. Second Party for himself, his heirs, executors, and administrators, and heirs, executors and administrators of the said MINOR, hereby WAIVE and RELEASE any and all rights and damages they may have against the FIRST PARTY, its officers and representatives, sponsors, managers, coaches, trainers or any person or persons who are in any manner connected with the operation of the POLICE ACTIVITIES LEAGUE, for any practices exhibitions, contests, training and including transportation to and from the foregoing activities, by said MINOR.
+      %br
+      %br
+      Dated at Honolulu, Hawaii, this _____ day of _________________ 2013
+      %br
+      %br
+      POLICE ACTIVITIES LEAGUE, FIRST PARTY, by #{@registration.player_name} (Child's Name),
+      %br
+      %br
+      SECOND PARTY:
+    %table{:style => "width:99%"}
       %tr
         %td
-          _________________________________
+          ______________________________
         %td
-          _________________________________
+          ______________________________
         %td
-          _________________________________
+          ______________________________
       %tr
         %td
           (father's / parent 1 signature)

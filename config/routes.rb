@@ -3,21 +3,25 @@ PalMoanalua::Application.routes.draw do
   resources :baseballs, :controller => "registrations", :type => "Baseball" do
     member do
       get 'thankyou'
+      get 'resend_email_notice'
     end
   end
   resources :basketballs, :controller => "registrations", :type => "Basketball" do
     member do
       get 'thankyou'
+      get 'resend_email_notice'
     end
   end
   resources :footballs, :controller => "registrations", :type => "Football" do
     member do
       get 'thankyou'
+      get 'resend_email_notice'
     end
   end
   resources :volleyballs, :controller => "registrations", :type => "Volleyball" do
     member do
       get 'thankyou'
+      get 'resend_email_notice'
     end
   end
   

@@ -95,6 +95,16 @@ class RegistrationsController < ApplicationController
     @registration = registration_type.find(params[:id])
   end
   
+  def resend_email_notice
+    @registration = registration_type.find(params[:id])
+    send_email_notice(@registration)
+
+    respond_to do |format|
+      format.html { redirect_to polymorphic_path(@registration.class), notice: "Email notice was resent to #{@registration.email_address}" }
+      format.json { head :no_content }
+    end    
+  end
+  
   private
   
   def send_email_notice(registration)

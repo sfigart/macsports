@@ -29,5 +29,8 @@
       %td= registration.priority
       %td= registration.volunteer_type
       %td= format_practice_days(registration.practice_days)
-      %td= link_to 'Edit', edit_polymorphic_path(registration)
+      %td
+        = link_to 'Edit', edit_polymorphic_path(registration)
+        %br
+        = link_to 'Resend Email Notice', polymorphic_path(registration)+'/resend_email_notice'
       %td= link_to 'Destroy', polymorphic_path(registration), method: :delete, data: { confirm: 'Are you sure?' }
