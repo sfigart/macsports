@@ -54,11 +54,8 @@
     %fieldset
       %legend Player's Information
       .row
-        .span9
-          - if @registration.new_record?
-            = f.input :birth_date, :as => :date, :start_year => Date.today.year - 15,  :end_year => Date.today.year, :order => [:month, :day, :year], :use_short_month => true, :prompt => true, :input_html => {:class => 'input-small'}
-          - else
-            = f.input :birth_date_as_date
+        .span4
+          = f.input :birth_date, :as => :date, :start_year => Date.today.year - 15,  :end_year => Date.today.year, :order => [:month, :day, :year], :use_short_month => true, :prompt => true, :input_html => {:class => 'input-small'}, :label => "Birth date *"
 
       .row
         .span1= f.input :age, :input_html => {:class => 'input-mini', :type => :text, :maxlength => 2}

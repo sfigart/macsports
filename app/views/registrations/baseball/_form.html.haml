@@ -67,10 +67,8 @@
       %legend Player's Information
       .row
         .span4
-          - if @registration.new_record?
-            = f.input :birth_date, :as => :date, :start_year => Date.today.year - 15,  :end_year => Date.today.year, :order => [:month, :day, :year], :use_short_month => true, :prompt => true, :input_html => {:class => 'input-small'}, :label => "Birth date *"
-          - else
-            = f.input :birth_date_as_date
+          = f.input :birth_date, :as => :date, :start_year => Date.today.year - 15,  :end_year => Date.today.year, :order => [:month, :day, :year], :use_short_month => true, :prompt => true, :input_html => {:class => 'input-small'}, :label => "Birth date *"
+
         .span8
           %br
           .alert.alert-info

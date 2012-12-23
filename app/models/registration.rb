@@ -8,9 +8,8 @@ class Registration < ActiveRecord::Base
                   :volunteer_type, :zip_code, :lives_in_district, :has_geographic_exception,
                   :division,
                   :type
-  attr_accessible :birth_date_as_date
   serialize :practice_days
-  attr_encrypted :birth_date, :key => 'something secret!'
+  attr_encrypted :birth_date, :key => 'something secret!', :marshal => true
   
   validates :player_last_name, :player_first_name,
             :father_last_name, :father_first_name,
@@ -30,15 +29,7 @@ class Registration < ActiveRecord::Base
   validates :medical_insurance_name, :presence => true, :if => :medical_insurance_name_required?
   validates :zip_code, :presence => true, :numericality => { :only_integer => true }
   validate  :has_at_least_one_contact_phone_number
-
-  def birth_date_as_date=(value)
-    self.birth_date = value
-  end
-  
-  def birth_date_as_date
-    Date.strptime(self.birth_date, '%F') rescue nil
-  end
-  
+    
   def medical_insurance_name_required?
     has_medical_insurance
   end
