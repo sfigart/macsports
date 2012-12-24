@@ -1,0 +1,35 @@
+POLICE ACTIVITIES LEAGUE - Moanalua Athletic Club Baseball Agreement - Date: <%= @registration.created_at.to_s(:mmddyy) %>
+Your child is registered to play in the <%= @registration.division%> division. Your registration number is: <%= @registration.number%>
+
+* Print, complete the agreement and sign. Return the signed email along with your payment
+* Payment of $<%= @registration.payment_amount %> must be made by check or money order made payable to MAC. 
+  -  Payment must be postmarked by 3/8/2013 or your child will not be able to participate in the 2013 Baseball season.
+* If the child did not play MAC Baseball in 2012, a copy of the child’s birth certificate must be submitted with the payment
+* Mail your signed agreement (this email), payment, and birth certificate (if required) to:
+
+  Candace Fujishima
+  1343 Maalahi Place
+  Honolulu, HI  96819
+
+Check Policy: Checks returned unpaid by your bank will be returned to you by the program coordinator.  Your check will not be re-deposited. Within one week of notification, you must make arrangements with the coordinator (or any board member) to pay the registration fee plus $20.00 (bank charges) by either: 1) cash or 2) another check. Should your second check be returned, all future payments (regardless of activity) must be made in cash.
+----------------------------------------------------------------------------------------
+AGREEMENT:
+This agreement made this <%= @registration.created_at.to_s(:day) %> day of <%= @registration.created_at.to_s(:month) %> <%= @registration.created_at.to_s(:year) %>
+by and between the POLICE ACTIVITIES LEAGUE, First party, and <%= @registration.parent_name_for_agreement %> (Parent's name)
+Second Party (Parents) of <%= @registration.player_name %> (Child's Name), a MINOR
+     
+WITNESSETH:
+That for and in consideration of the conditions, promises and covenants of the parties hereto, it is hereby agreed as follows:
+
+1. Second Party for himself, his heirs, executors, and administrators, and heirs, executors and administrators of the said MINOR, hereby WAIVE and RELEASE any and all rights and damages they may have against the FIRST PARTY, its officers and representatives, sponsors, managers, coaches, trainers or any person or persons who are in any manner connected with the operation of the POLICE ACTIVITIES LEAGUE, for any practices exhibitions, contests, training and including transportation to and from the
+   foregoing activities,by said MINOR.
+
+Dated at Honolulu, Hawaii, this _____ day of _________________ 2013
+
+POLICE ACTIVITIES LEAGUE, FIRST PARTY, by <%= @registration.player_name %> (Child's Name), SECOND PARTY:
+
+______________________________     ______________________________ 
+(father's / parent 1 signature)    (mother's / parent 2 signature)
+
+______________________________
+OR (guardian's signature)
