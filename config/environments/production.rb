@@ -61,7 +61,7 @@ PalMoanalua::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'palmoanalua.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'macsports.herokuapp.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
@@ -72,7 +72,7 @@ PalMoanalua::Application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "palmoanalua.herokuapp.com",
+    domain: "macsports.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
@@ -84,5 +84,5 @@ PalMoanalua::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
   # replace this with your tracker code
-  GA.tracker = "UA-2857517-8"
+  GA.tracker = ENV["GOOGLE_ANALYTICS"]
 end
