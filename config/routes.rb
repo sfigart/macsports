@@ -39,5 +39,5 @@ PalMoanalua::Application.routes.draw do
   match '/home/football' => "home#football"
   match '/home/volleyball' => "home#volleyball"
   
-  root :to => "home#index"
+  root :to => "home#baseball"
 end
