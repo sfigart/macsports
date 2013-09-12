@@ -73,7 +73,7 @@
           %br
           .alert.alert-info
             %span.label.label-warning Notice
-            %em If the child did not play MAC Baseball in 2012, a copy of the child’s birth certificate must be submitted with the payment
+            %em If the child did not play MAC Baseball in 2013, a copy of the child’s birth certificate must be submitted with the payment
 
       .row
         .span1= f.input :age, :input_html => {:class => 'input-mini', :type => :text, :maxlength => 2}
@@ -84,7 +84,7 @@
         .span6= f.input :school, :input_html => {:class => 'input-block-level'}
 
       .row
-        .span3= f.input :division, :collection => baseball_divisions, :as => :radio_buttons
+        .span6= f.input :division, :collection => baseball_divisions, :as => :radio_buttons
 
     %fieldset
       %legend Special Requests
