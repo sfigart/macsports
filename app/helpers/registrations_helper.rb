@@ -87,11 +87,11 @@ module RegistrationsHelper
   
   def baseball_divisions
     [  
-      ['Jr. Pinto (5/1/2007 - 4/30/2009) [5 & 6 years old]', 'JrPinto'],
-      ['Pinto (5/1/2005 - 4/30/2007) [7 & 8 years old]', 'Pinto'],
-      ['Mustang (5/1/2003 - 4/30/2005) [9 & 10 years old]', 'Mustang'],
-      ['Bronco (5/1/2001 - 4/30/2003) [11 & 12 years old]', 'Bronco'],
-      ['Pony (5/1/1999 - 4/30/2001) [13 & 14 years old]', 'Pony']
+      ['Jr. Pinto (5/1/2008 - 4/30/2010) [5 & 6 years old]', 'JrPinto'],
+      ['Pinto (5/1/2006 - 4/30/2008) [7 & 8 years old]', 'Pinto'],
+      ['Mustang (5/1/2004 - 4/30/2006) [9 & 10 years old]', 'Mustang'],
+      ['Bronco (5/1/2002 - 4/30/2004) [11 & 12 years old]', 'Bronco'],
+      ['Pony (5/1/2000 - 4/30/2002) [13 & 14 years old]', 'Pony']
     ]
   end
   
