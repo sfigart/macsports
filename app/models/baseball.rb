@@ -11,11 +11,11 @@ class Baseball < Registration
 
   def payment_amount
     fees = {
-      'JrPinto' => 65,
-      'Pinto' => 75,
-      'Mustang' => 75,
-      'Bronco' => 80,
-      'Pony' => 80
+      'JrPinto' => 70,
+      'Pinto' => 80,
+      'Mustang' => 80,
+      'Bronco' => 85,
+      'Pony' => 85
     }
     fees[self.division]
   end
