@@ -34,7 +34,7 @@ class Registration < ActiveRecord::Base
   end
   
   def number
-    "2015#{abbr}%03d" % self.id unless self.new_record?
+    "2016#{abbr}%03d" % self.id unless self.new_record?
   end
   
   def player_name
