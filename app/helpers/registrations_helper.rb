@@ -3,7 +3,7 @@ module RegistrationsHelper
   def partials_path(registration, partial_name)
     "registrations/#{registration.type.downcase}/#{partial_name}"
   end
-  
+
   def show_volleyball_fields
     [
       :number,
@@ -21,10 +21,10 @@ module RegistrationsHelper
       :priority, :practice_days,
       :volunteer_type,
       :lives_in_district, :has_geographic_exception,
-      :parent_name_for_agreement,    
+      :parent_name_for_agreement,
     ]
   end
-  
+
   def show_baseball_fields
     [
       :number,
@@ -42,10 +42,10 @@ module RegistrationsHelper
       :has_medical_insurance, :medical_insurance_name,
       :priority, :practice_days,
       :volunteer_type,
-      :parent_name_for_agreement,    
+      :parent_name_for_agreement,
     ]
   end
-  
+
   def show_technical_fields
     [
       :remote_ip,
@@ -57,51 +57,50 @@ module RegistrationsHelper
       :request_fullpath
     ]
   end
-  
+
   def phone_number_presence_notice(registration)
     if registration.errors.include?(:phone_number_presence)
       render :partial => partials_path(registration, 'phone_number_presence_notice')
     end
   end
-    
+
   def format_practice_days(practice_days)
     practice_days.reject! { |d| d.empty? }
     practice_days.join(', ')
   end
-  
+
   def format_to_hawaii(timewithzone)
     timewithzone.in_time_zone("Hawaii").strftime("%m/%d/%y %l:%M %p")
   end
-  
+
   def ages
     4..12
   end
-  
+
   def divisions
-    [  
+    [
       ['Pinto   (4/30/2006 - 5/1/2004)', 'Pinto'],
       ['Mustang (4/30/2004 - 5/1/2002)', 'Mustang'],
       ['Bronco  (4/30/2002 - 5/1/1999)', 'Bronco']
     ]
   end
-  
+
   def baseball_divisions
-    [  
-      ['Jr. Pinto (5/1/2009 - 4/30/2011) [5 & 6 years old]', 'JrPinto'],
-      ['Pinto (5/1/2007 - 4/30/2009) [7 & 8 years old]', 'Pinto'],
-      ['Mustang (5/1/2005 - 4/30/2007) [9 & 10 years old]', 'Mustang'],
-      ['Bronco (5/1/2003 - 4/30/2005) [11 & 12 years old]', 'Bronco'],
-      ['Pony (5/1/2001 - 4/30/2003) [13 & 14 years old] ** depending on interest **', 'Pony']
+    [
+      ['Jr. Pinto (5/1/2010 - 4/30/2012) [5 & 6 years old]', 'JrPinto'],
+      ['Pinto (5/1/2008 - 4/30/2010) [7 & 8 years old]', 'Pinto'],
+      ['Mustang (5/1/2006 - 4/30/2008) [9 & 10 years old]', 'Mustang'],
+      ['Bronco (5/1/2004 - 4/30/2006) [11 & 12 years old]', 'Bronco'],
     ]
   end
-  
+
   def genders
     [
       ['Male', 'M'],
       ['Female', 'F']
     ]
   end
-  
+
   def grades
     [
       ['Kindergarten', 'K'],
@@ -115,7 +114,7 @@ module RegistrationsHelper
       ['8th grade', '8']
     ]
   end
-  
+
   def practice_days
     [
       ['Monday', 'M'],
@@ -125,11 +124,11 @@ module RegistrationsHelper
       ['Friday', 'F']
     ]
   end
-  
+
   def shirt_sizes
     %w(YS YM YL AS AM AL AXL AXXL)
   end
-  
+
   def pants_sizes
     %w(YXS YS YM YL YXL AS AM AL AXL AXXL)
   end
@@ -142,7 +141,7 @@ module RegistrationsHelper
       'Unable to volunteer'
     ]
   end
-  
+
   def us_states
       [
         ['Alabama', 'AL'],

@@ -12,12 +12,12 @@
         .span3= f.input :player_nickname, :placeholder => "Nickname"
 
     %fieldset
-      %legend Parent Information 
+      %legend Parent Information
       .row
         .span3= f.input :father_first_name, :placeholder => "First",
           :label => "Father's name / Parent 1", :required => true
         .span3= f.input :father_last_name, :placeholder => "Last", :label => '&nbsp;'
-      .row  
+      .row
         .span3= f.input :mother_first_name, :placeholder => "First",
           :label => "Mother's name / Parent 2", :required => true
         .span3= f.input :mother_last_name, :placeholder => "Last", :label => false, :label => '&nbsp;'
@@ -73,7 +73,7 @@
           %br
           .alert.alert-info
             %span.label.label-warning Notice
-            %em If the child did not play MAC Baseball in 2015, a copy of the child’s birth certificate must be submitted with the payment
+            %em If the child did not play MAC Baseball in 2016, a copy of the child’s birth certificate must be submitted with the payment
 
       .row
         .span1= f.input :age, :input_html => {:class => 'input-mini', :type => :text, :maxlength => 2}
@@ -109,7 +109,7 @@
 
     %fieldset
       %legend
-        Practice day request 
+        Practice day request
         %em (optional)
       .row
         .span12

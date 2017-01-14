@@ -5,7 +5,6 @@ gem 'json', '1.7.7'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'mysql2'
 end
 group :production do
   gem 'pg'
